@@ -3,16 +3,74 @@
     <head>
         <title>This is a Web Page!</title>
         <style>
-            body {
-                background-color: green;    
-            }
+        .body{
+        background-color:black;
+        color: #7FFF00;
+       }
+        .navbar{
+        background-color: #35383d;
+        overflow: hidden;
+      }
+
+      .navbar a {
+        color: #FFF;
+        font-size: 24px;
+        text-decoration: none;
+        padding:16px;
+        float:left;
+      }
+      
+      .morelinks{
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+        padding:16px;
+      }
+
+      .navbar a:hover, .morelinks:hover{
+        background-color: #7FFF00;
+      }
+
+      .dropdown:hover .dropdown-content{
+        display: block;
+      }
+
+      .dropdown-content{
+        position: absolute;
+        z-index: 1;
+        display:none;
+        background-color: #35383d;
+        
+      }
+      
+      .dropdown{
+          color: #7FFF00;
+          float: left;
+          text-decoration: none;
+          font-size: 24px;
+      }
+      
+      .dropdown-content a{
+          float: none;
+          display: block;
+      }
+
         </style>
     </head>
-    <body>
-        <div>
-            <h1>Graphic design is my passion.</h1>
-            <p>Yes.</p>
+    <body class=body>
+    <div class="navbar">
+      <a href="https://www.yahoo.com">Yahoo</a>
+      <a href="https://www.google.com">Google</a>
+      <a href="https://www.yahoo.com">Yahoo</a>
+      <div class="dropdown">
+        <div class="morelinks">More Links</div>
+        <div class="dropdown-content">
+          <a href="https://www.awseducate.com">AWS Educate</a>
+          <a href="https://www.collegeboard.org">College Board</a>
         </div>
-        
-    </body>
+      </div>  
+    </div>
+    <br>
+        <h1> HELLO! </h1>
+  </body>
 </html>
