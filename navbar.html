@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is a Web Page!</title>
+        <style>
+        .body{
+        background-color: black;
+        color: #7FFF00;
+       }
+        .navbar{
+        background-color: #35383d;
+        overflow: hidden;
+      }
+
+      .navbar a {
+        color: #FFF;
+        font-size: 24px;
+        text-decoration: none;
+        padding: 16px;
+        float: left;
+      }
+      
+      .morelinks{
+        color: #FFF;
+        font-size: 24px;
+        text-decoration: none;
+        padding: 16px;
+      }
+
+      .navbar a:hover, .morelinks:hover{
+        background-color: #7FFF00;
+      }
+
+      .dropdown:hover .dropdown-content{
+        display: block;
+      }
+
+      .dropdown-content{
+        position: absolute;
+        z-index: 1;
+        display: none;
+        background-color: #35383d;
+        
+      }
+      
+      .dropdown{
+          color: #7FFF00;
+          float: left;
+          text-decoration: none;
+          font-size: 24px;
+      }
+      
+      .dropdown-content a{
+          float: none;
+          display: block;
+      }
+
+        </style>
+    </head>
+    <body class=body>
+    <div class="navbar">
+      <a href="https://www.yahoo.com">generic link</a>
+      <a href="https://www.google.com">more links</a>
+      <a href="https://www.yahoo.com">You Thought</a>
+      <div class="dropdown">
+        <div class="morelinks">More Links</div>
+        <div class="dropdown-content">
+          <a href="https://www.awseducate.com">Fake News</a>
+          <a href="I_told_you.">This goes nowhere</a>
+        </div>
+      </div>  
+    </div>
+    <br>
+        <h1> HELLO! </h1>
+  </body>
+</html>
