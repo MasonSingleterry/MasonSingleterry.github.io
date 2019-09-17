@@ -1,0 +1,97 @@
+            /*RESUME*/
+            .body {
+                background-color: #000000;
+                color: #FFFFFF;
+            }
+            
+            .navbar {
+                list-style: none;
+                background-color: #35383d;
+                overflow: hidden;
+                padding: 0;
+            }
+            
+            .navbar a, .dropdown div {
+                text-decoration: none;
+                color: #ffffff;
+                font-size: 24px;
+                padding: 16px;
+                display: inline-block;
+            }
+            
+            .navbar li {
+                float: left;
+            }
+            
+            .navbar li:hover {
+                background-color: #7FFF00;
+            }
+            
+            .dropdown-content {
+                list-style: none;
+                padding: 0;
+                display: none;
+                position: absolute;
+                Z-index: 1;
+            }
+            .dropdown-content li {
+                background-color: #35383d;
+                float: none; 
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            
+            .active {
+                background-color: blue;
+            }
+            /*Index*/
+            .body {
+                background-color: #000000;
+                color: #FFFFFF;
+            }
+            
+            .navbar {
+                list-style: none;
+                background-color: #35383d;
+                overflow: hidden;
+                padding: 0;
+            }
+            
+            .navbar a, .dropdown div {
+                text-decoration: none;
+                color: #ffffff;
+                font-size: 24px;
+                padding: 16px;
+                display: inline-block;
+            }
+            
+            .navbar li {
+                float: left;
+            }
+            
+            .navbar li:hover {
+                background-color: #7FFF00;
+            }
+            
+            .dropdown-content {
+                list-style: none;
+                padding: 0;
+                display: none;
+                position: absolute;
+                Z-index: 1;
+            }
+            .dropdown-content li {
+                background-color: #35383d;
+                float: none; 
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            
+            .active {
+                background-color: blue;
+            }
+            
