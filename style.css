@@ -1,16 +1,16 @@
             .body {
                 background-image: linear-gradient(90deg, #51e0f0,  #FFFFFF);
-                color: #00000;
+                color: #000000;
                 font-size: 12;
             }
-            
+
             .navbar {
                 list-style: none;
                 background-color: #FFFFFF;
                 overflow: hidden;
                 padding: 0;
             }
-            
+
             .navbar a, .dropdown div {
                 text-decoration: none;
                 color: #51e0f0;
@@ -18,15 +18,15 @@
                 padding: 16px;
                 display: inline-block;
             }
-            
+
             .navbar li {
                 float: left;
             }
-            
+
             .navbar li:hover {
                 background-color: blue;
             }
-            
+
             .dropdown-content {
                 list-style: none;
                 padding: 0;
@@ -36,13 +36,13 @@
             }
             .dropdown-content li {
                 background-color: #FFFFFF;
-                float: none; 
+                float: none;
             }
-            
+
             .dropdown:hover .dropdown-content {
                 display: block;
             }
-            
+
             .active {
                 background-color: blue;
             }
