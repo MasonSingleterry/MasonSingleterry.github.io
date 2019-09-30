@@ -20,7 +20,7 @@
             }
 
             .navbar li {
-                float: left;
+                float: right;
             }
 
             .navbar li:hover {
@@ -48,5 +48,11 @@
             }
 
             .aboutme-img {
-              
+              width: 250px;
             }
+
+            .aboutme-p {
+                float: right;
+                margin: right;
+            }
+
