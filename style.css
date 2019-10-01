@@ -48,11 +48,23 @@
             }
 
             .aboutme-img {
-              width: 250px;
+                width: 350px;
+                float: left;
+                margin: left;
             }
 
             .aboutme-p {
-                float: right;
-                margin: right;
+                padding: 50px;
+                float: center;
+                margin: center;
+                font-size: 24px;
             }
 
+            .image-4-fix {
+                -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                -ms-transform: rotate(90deg);
+                -o-transform: rotate(90deg);
+                transform: rotae(90deg);
+
+            }
