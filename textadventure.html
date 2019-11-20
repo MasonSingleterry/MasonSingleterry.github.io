@@ -1,60 +1,391 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Project 1</title>
-        <link rel = "stylesheet" type = "text/css" href = "style.css">
-        <style>
-            #container
-            {
-                position: absolute;
-                top: 75px;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
-                background-color: green;
-            }
+<head>
+<title>Text Adventure</title>
 
-            #leftpane
-            {
-                width: 56%;
-                height: 100%;
-                float: left;
-                display: center;
-                align-items: center;
-                justify-content: center;
-                background-color: red;
-            }
+<style>
+    #container{
+        position: absolute;
+        top: 40px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: black;
+    }
 
-            #rightpane
-            {
-                width: 44%;
-                height: 100%;
-                float: left;
-                background-color: blue;
-            }
-        </style>
-    </head>
-    <body class = "body">
-        <ul class = "navbar">
-            <li><a href = "index.html">Home</a></li>
-            <li><a href = "aboutme.html">About Me</a></li>
-            <li><a href = "resume.html">Resume</a></li>
-            <li class = "dropdown">
-                <div class = "active">Projects</div>
-                <ul class = "dropdown-content">
-                    <li><a href = "textadventure.hmtl">Text Adventure</a></li>
-                    <li><a href = "project2.html">project 2</a></li>
-                    <li><a href = "project3.html">project 3</a></li>
-                </ul>
-            </li>
-            <li><a href = "contactme.html">Contact Me</a></li>
-        </ul>
-        <div id = "container">
-            <div id = "leftpane">
+    #leftpane{
+        width: 56%;
+        height: 100%;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #rightpane{
+        width: 44%;
+        height: 100%;
+        float: left;
+    }
+
+    #storytext{
+        position: absolute;
+        bottom: 100px;
+        top: 0px;
+        left: 56%;
+        right: 0px;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    #choices{
+        position: absolute;
+        bottom: 0px;
+        left: 56%;
+        right: 0px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #b1, #b2, #b3, #b4{
+        display: inline-block;
+        background-color: purple;
+        background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
+        color: white;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin: 8px;
+    }
+
+    #ptext1{
+        color: blue;
+    }
+    #ptext2{
+        color: green;
+    }
+    #ptext3{
+        color: white;
+    }
+    #ptext4{
+        color: white;
+    }
+    #storyimg{
+        max-height: 94%;
+        max-width: 94%;
+        width: 94%; 
+    }
+
+</style>
+</head>
+<body>
+    <div id='container'>
+        <div id='leftpane'>
+            <img id='storyimg' src="images/witch.jpg">
+        </div>
+
+        <div id='rightpane'>
+            <div id='storytext'>
+                <p id='ptext1'>It is the year 2019 when champion marathon runner, Rabbi Quartz Abraham, must set off on a quest to save her family. Mariel Hassani, a witch and rival competitor, kidnaps and transports R.Q.’s family into Minecraft, a video game set in which the player must build and survive against creatures such as skeletons, zombies, and spiders.</p>
+                <p id='ptext2'>Rabbi Quartz Abraham had beaten Mariel in a race back in last year’s Chicago Marathon and ever since- Mariel has held a grudge against Rabbi Quartz, and due to this year’s loss in the Chicago Marathon, Mariel seeks revenge by keeping her family hostage in a video game. R.Q., as the player, has to kill the Ender Dragon (the final boss) for their release.</p>
+                <p id='ptext3'>Through trials and tribulations, perhaps R.Q. Abraham will stop running away from her problems and face danger, or she will run straight to her demise.</p>
+                <p id='ptext4'>more text</p>
             </div>
-
-            <div id = "rightpane">
+            <div id='choices'>
+                <a id='b1' onclick="bclick(1)" href="#">Choice 1</a>
+                <a id='b2' onclick="bclick(2)" href="#">Choice 2</a>
+                <a id='b3' onclick="bclick(3)" href="#">Choice 3</a>
+                <a id='b4' onclick="bclick(4)" href="#">Choice 4</a>
             </div>
         </div>
-    </body>
+    </div>
+
+<script>
+    var pic = document.getElementById('storyimg');
+    var ptext1 = document.getElementById('ptext1');
+    var ptext2 = document.getElementById('ptext2');
+    var ptext3 = document.getElementById('ptext3');
+    var ptext4 = document.getElementById('ptext4');
+    var b1 = document.getElementById('b1');
+    var b2 = document.getElementById('b2');
+    var b3 = document.getElementById('b3');
+    var b4 = document.getElementById('b4');
+    var health = 100;
+    var patrickHealth = 100;
+    var state = "intro";
+    intro();
+
+    function intro(){
+        pic.src = "images/textadventureimages/titlescreen.JPG";
+        ptext1.innerHTML = "Are yee ready kids";
+        ptext2.innerHTML = "";
+        ptext3.innerHTML = "";
+        ptext4.innerHTML = "";
+        b1.innerHTML = "aye aye captain";
+        b2.innerHTML = "No";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "none";
+        b4.style.display = "none";
+        
+    }
+
+    function gameOver(){
+        pic.src = "images/textadventureimages/gameover.JPG";
+        ptext1.innerHTML = "";
+        ptext2.innerHTML = "continue?";
+        ptext3.innerHTML = "";
+        ptext4.innerHTML = "";
+        b1.innerHTML = "yes";
+        b2.innerHTML = "No";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "none";
+        b4.style.display = "none";
+    }
+
+    function sendToGoogle(){
+        window.location = 'https://google.com'
+    }
+
+    function meetPatrick(){
+        pic.src = "images/textadventureimages/meetpatrick.JPG";
+        ptext1.innerHTML = "who ever is the owner of the white sedan, you left your lights on.";
+        ptext2.innerHTML = "What would you like to do?";
+        ptext3.innerHTML = "";
+        ptext4.innerHTML = "";
+        b1.innerHTML = "Attack";
+        b2.innerHTML = "Run";
+        b3.innerHTML = "Stay";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "none";
+         
+    }
+
+    function meetSponge(){
+        pic.src = "images/textadventureimages/meetsponge.JPG";
+        ptext1.innerHTML = "I'm ugly and proud.";
+        ptext2.innerHTML = "What would you like to do?";
+        ptext3.innerHTML = "";
+        ptext4.innerHTML = "";
+        b1.innerHTML = "Attack";
+        b2.innerHTML = "Run";
+        b3.innerHTML = "Stay";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "none";
+        
+    }
+
+    function battlePatrick(){
+        pic.src = "images/textadventureimages/patrick-battle.JPG";
+        ptext1.innerHTML = "'Where's the leak, ma'am?.'";
+        ptext2.innerHTML = "What would you like to do?";
+        ptext3.innerHTML = "health:" + health;
+        ptext4.innerHTML = "Patrick health:" + patrickHealth;
+        b1.innerHTML = "Attack";
+        b2.innerHTML = "Run";
+        b3.innerHTML = "Stay";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "none";
+        ptext1.style.color = "pink";
+        
+    }
+
+    function attackOptions(){
+        pic.src = "images/textadventureimages/attackoptions.JPG";
+        ptext1.innerHTML = "";
+        ptext2.innerHTML = "What attack do you perform?";
+        ptext3.innerHTML = "Health:" + health;
+        ptext4.innerHTML = "Patrick health:" + patrickHealth;
+        b1.innerHTML = "slap";
+        b2.innerHTML = "punch";
+        b3.innerHTML = "tickle";
+        b4.innerHTML = "trombone";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "block";
+    }
+
+    function battlePatrickSlap(){
+        pic.src = "images/textadventureimages/battlepatrickslap.JPG";
+        ptext1.innerHTML = "It was very in effective...Patrick retaliates by doing nothing.";
+        ptext2.innerHTML = "What do you do?";
+        ptext3.innerHTML = "Health:" + health;
+        ptext4.innerHTML = "Patrick health:" + patrickHealth;
+        b1.innerHTML = "slap again";
+        b2.innerHTML = "punch";
+        b3.innerHTML = "tickle";
+        b4.innerHTML = "trombone";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "block";
+        ptext1.style.color = "blue";
+        ptext2.style.color = "green";
+        ptext3.style.color = "white";
+    }
+
+    function battlePatrickPunch(){
+        pic.src = "images/textadventureimages/battlepatrickslap.JPG";
+        ptext1.innerHTML = "you missed... patrick obliterates you killing you";
+        ptext2.innerHTML = "";
+        ptext3.innerHTML = "Health:" + health;
+        ptext4.innerHTML = "Patrick health:" + patrickHealth;
+        b1.innerHTML = "continue";
+        b2.innerHTML = "";
+        b3.innerHTML = "";
+        b4.innerHTML = "";
+        b1.style.display = "block";
+        b2.style.display = "none";
+        b3.style.display = "none";
+        b4.style.display = "none";
+    }
+
+    function battlePatrickTickle(){
+        pic.src = "images/textadventureimages/battlepatrickslap.JPG";
+        ptext1.innerHTML = "What attack do you perform";
+        ptext2.innerHTML = "";
+        ptext3.innerHTML = "Health:" + health;
+        ptext4.innerHTML = "Patrick health:" + patrickHealth;
+        b1.innerHTML = "slap";
+        b2.innerHTML = "punch";
+        b3.innerHTML = "tickle";
+        b4.innerHTML = "trombone";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "block";
+    }
+
+    function battlePatrickTrombone(){
+        pic.src = "images/textadventureimages/battlepatrickslap.JPG";
+        ptext1.innerHTML = "What attack do you perform";
+        ptext2.innerHTML = "";
+        ptext3.innerHTML = "Health:" + health;
+        ptext4.innerHTML = "Patrick health:" + patrickHealth;
+        b1.innerHTML = "slap";
+        b2.innerHTML = "punch";
+        b3.innerHTML = "tickle";
+        b4.innerHTML = "trombone";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "block";
+    }
+
+    function patrickDeath(){
+        pic.src = "images/textadventureimages/patrickdead.JPG";
+        ptext1.innerHTML = "patrick dies...";
+        ptext2.innerHTML = "What do you do now?";
+        ptext3.innerHTML = "Health:" + health;
+        ptext4.innerHTML = "Patrick health:" + patrickHealth;
+        b1.innerHTML = "Loot";
+        b2.innerHTML = "Walk away";
+        b3.innerHTML = "Wait whats that?";
+        b4.innerHTML = "uhh....";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "block";
+
+    }
+
+    //state machine
+    function bclick(button){
+        if(state == "intro"){
+            if (button == 1){
+                meetPatrick();
+                state = "meetPatrick";
+            }
+            else if(button == 2){
+                gameOver();
+                state = "gameOver";
+            }
+        }
+        else if(state == "gameOver"){
+            if(button == 1){
+                intro();
+                state = "intro";
+            }
+            else if(button == 2){
+                sendToGoogle();
+                state = "sendToGoogle";
+            }
+        }
+        else if(state == "meetPatrick"){
+            if(button == 1){
+               battlePatrick();
+                state = "battlePatrick";
+            }
+            else if(button == 2){
+                meetSponge();
+                state = "meetSponge";
+            }
+        }
+        else if(state == "battlePatrick"){
+            if(button == 1){
+                attackOptions();
+                state = "attackOptions";
+            }
+            else if(button == 2){
+                meetSponge();
+                state = "meetSponge";
+            }
+        }
+        else if(state == "attackOptions"){
+            if(button == 1){
+                patrickHealth--;
+                if(patrickHealth == 0){
+                    patrickDeath();
+                    state = "patrickDeath";
+                } else {
+                battlePatrickSlap();
+                state = "battlePatrickSlap";
+                }   
+            }
+            else if(button == 2){
+                battlePatrickPunch();
+                state = "battlePatrickPunch";
+            }
+            else if(button == 3){
+                battlePatrickTickle();
+                state = "battlePatrickTickle";
+            }
+            else if(button == 4){
+                battlePatrickTrombone();
+                state = "battlePatrickTrombone";
+            }
+        }
+        else if(state == "battlePatrickSlap"){
+            if(button == 1){
+                patrickHealth --;
+                if(patrickHealth == 0){
+                    patrickDeath();
+                    state = "patrickDeath";
+                } else {
+                battlePatrickSlap();
+                state = "battlePatrickSlap";
+                }
+            } 
+           
+            else if(state == "battlePatrickPunch"){
+                health - 100;
+            }
+        }
+        return false;
+    }
+
+</script>
+</body>
 </html>
