@@ -116,6 +116,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
     var b4 = document.getElementById('b4');
     var health = 100;
     var patrickHealth = 100;
+    var instantDeath = -100;
     var state = "intro";
     intro();
 
@@ -131,7 +132,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
         b2.style.display = "block";
         b3.style.display = "none";
         b4.style.display = "none";
-        
+        ptext1.style.color = "green";
     }
 
     function gameOver(){
@@ -160,11 +161,12 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
         ptext4.innerHTML = "";
         b1.innerHTML = "Attack";
         b2.innerHTML = "Run";
-        b3.innerHTML = "Stay";
+        b3.innerHTML = "Talk";
         b1.style.display = "block";
         b2.style.display = "block";
         b3.style.display = "block";
         b4.style.display = "none";
+        ptext1.style.color = "pink";
          
     }
 
@@ -182,6 +184,53 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
         b3.style.display = "block";
         b4.style.display = "none";
         
+    }
+
+    function ticklePatrick(){
+        pic.src = "images/textadventureimages/meetpatrick.JPG";
+        ptext1.innerHTML = "You distracted Patrick and you walk a way to find Spongebob.";
+        ptext2.innerHTML = "";
+        ptext3.innerHTML = "";
+        ptext4.innerHTML = "";
+        b1.innerHTML = "continue";
+        b2.innerHTML = "";
+        b3.innerHTML = "";
+        b1.style.display = "block";
+        b2.style.display = "none";
+        b3.style.display = "none";
+        b4.style.display = "none";
+        ptext1.style.color = "Green"
+    }
+
+    function meetBoth(){
+        pic.src = "images/textadventureimages/meetboth.JPG";
+        ptext1.innerHTML = "Knowledge can never replace friendship, I prefer to be an idiot.";
+        ptext2.innerHTML = "What would you like to do?";
+        ptext3.innerHTML = "";
+        ptext4.innerHTML = "";
+        b1.innerHTML = "Attack";
+        b2.innerHTML = "Run";
+        b3.innerHTML = "Stay";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "none";
+        ptext1.style.color = "red"
+    }
+
+    function talkToPatrick(){
+        pic.src = "images/textadventureimages/talktopatrick.JPG";
+        ptext1.innerHTML = "What do you want to talk about?";
+        ptext2.innerHTML = "^";
+        ptext3.innerHTML = "";
+        ptext4.innerHTML = "";
+        b1.innerHTML = "";
+        b2.innerHTML = "Run";
+        b3.innerHTML = "Stay";
+        b1.style.display = "block";
+        b2.style.display = "block";
+        b3.style.display = "block";
+        b4.style.display = "none";
     }
 
     function battlePatrick(){
@@ -240,7 +289,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
         pic.src = "images/textadventureimages/battlepatrickslap.JPG";
         ptext1.innerHTML = "you missed... patrick obliterates you killing you";
         ptext2.innerHTML = "";
-        ptext3.innerHTML = "Health:" + health;
+        ptext3.innerHTML = "Health: 0 ";
         ptext4.innerHTML = "Patrick health:" + patrickHealth;
         b1.innerHTML = "continue";
         b2.innerHTML = "";
@@ -251,37 +300,9 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
         b3.style.display = "none";
         b4.style.display = "none";
     }
-
-    function battlePatrickTickle(){
-        pic.src = "images/textadventureimages/battlepatrickslap.JPG";
-        ptext1.innerHTML = "What attack do you perform";
-        ptext2.innerHTML = "";
-        ptext3.innerHTML = "Health:" + health;
-        ptext4.innerHTML = "Patrick health:" + patrickHealth;
-        b1.innerHTML = "slap";
-        b2.innerHTML = "punch";
-        b3.innerHTML = "tickle";
-        b4.innerHTML = "trombone";
-        b1.style.display = "block";
-        b2.style.display = "block";
-        b3.style.display = "block";
-        b4.style.display = "block";
-    }
-
+    
     function battlePatrickTrombone(){
-        pic.src = "images/textadventureimages/battlepatrickslap.JPG";
-        ptext1.innerHTML = "What attack do you perform";
-        ptext2.innerHTML = "";
-        ptext3.innerHTML = "Health:" + health;
-        ptext4.innerHTML = "Patrick health:" + patrickHealth;
-        b1.innerHTML = "slap";
-        b2.innerHTML = "punch";
-        b3.innerHTML = "tickle";
-        b4.innerHTML = "trombone";
-        b1.style.display = "block";
-        b2.style.display = "block";
-        b3.style.display = "block";
-        b4.style.display = "block";
+        
     }
 
     function patrickDeath(){
@@ -292,7 +313,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
         ptext4.innerHTML = "Patrick health:" + patrickHealth;
         b1.innerHTML = "Loot";
         b2.innerHTML = "Walk away";
-        b3.innerHTML = "Wait whats that?";
+        b3.innerHTML = "Wait... whats that?";
         b4.innerHTML = "uhh....";
         b1.style.display = "block";
         b2.style.display = "block";
@@ -342,6 +363,10 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
                 meetSponge();
                 state = "meetSponge";
             }
+            else if(button == 3){
+                talkToPatrick();
+                state = "talkToPatrick";
+            }
         }
         else if(state == "attackOptions"){
             if(button == 1){
@@ -359,8 +384,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
                 state = "battlePatrickPunch";
             }
             else if(button == 3){
-                battlePatrickTickle();
-                state = "battlePatrickTickle";
+               ticklePatrick();
+                state = "ticklePatrick";
             }
             else if(button == 4){
                 battlePatrickTrombone();
@@ -377,10 +402,26 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 100%);
                 battlePatrickSlap();
                 state = "battlePatrickSlap";
                 }
+            }
+            else if(button == 2){
+                battlePatrickPunch();
+                state = "bettlePatrickPunch";
+            }
+            else if(button == 3){
+                ticklePatrick();
+                state = "ticklePatrick";
             } 
-           
-            else if(state == "battlePatrickPunch"){
-                health - 100;
+        }
+        else if(state == "battlePatrickPunch"){
+            if(button == 1){
+                gameOver();
+                state = "gameOver";
+            }
+        }
+        else if(state == "ticklePatrick"){
+            if(button == 1){
+                meetBoth();
+                state = (meetBoth);
             }
         }
         return false;
